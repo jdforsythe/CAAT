@@ -289,7 +289,8 @@
 		},
         /**
          * Private.
-         * Gets a given anchor position referred to the Actor.
+         * Gets a given anchor position referred to the Actor or an object of the form
+         *   { x: float, y: float }
          * @param anchor
          * @return an object of the form { x: float, y: float }
          */
@@ -297,42 +298,46 @@
 			var tx=0, ty=0;
 
 			switch( anchor ) {
-            case this.ANCHOR_CENTER:
-            	tx= this.width/2;
-            	ty= this.height/2;
-                break;
-            case this.ANCHOR_TOP:
-            	tx= this.width/2;
-            	ty= 0;
-                break;
-            case this.ANCHOR_BOTTOM:
-            	tx= this.width/2;
-            	ty= this.height;
-                break;
-            case this.ANCHOR_LEFT:
-            	tx= 0;
-            	ty= this.height/2;
-                break;
-            case this.ANCHOR_RIGHT:
-            	tx= this.width;
-            	ty= this.height/2;
-                break;
-            case this.ANCHOR_TOP_RIGHT:
-            	tx= this.width;
-            	ty= 0;
-                break;
-            case this.ANCHOR_BOTTOM_LEFT:
-            	tx= 0;
-            	ty= this.height;
-                break;
-            case this.ANCHOR_BOTTOM_RIGHT:
-            	tx= this.width;
-            	ty= this.height;
-                break;
-            case this.ANCHOR_TOP_LEFT:
-            	tx= 0;
-            	ty= 0;
-                break;
+			    case this.ANCHOR_CENTER:
+			    	tx= this.width/2;
+			    	ty= this.height/2;
+				break;
+			    case this.ANCHOR_TOP:
+			    	tx= this.width/2;
+			    	ty= 0;
+				break;
+			    case this.ANCHOR_BOTTOM:
+			    	tx= this.width/2;
+			    	ty= this.height;
+				break;
+			    case this.ANCHOR_LEFT:
+			    	tx= 0;
+			    	ty= this.height/2;
+				break;
+			    case this.ANCHOR_RIGHT:
+			    	tx= this.width;
+			    	ty= this.height/2;
+				break;
+			    case this.ANCHOR_TOP_RIGHT:
+			    	tx= this.width;
+			    	ty= 0;
+				break;
+			    case this.ANCHOR_BOTTOM_LEFT:
+			    	tx= 0;
+			    	ty= this.height;
+				break;
+			    case this.ANCHOR_BOTTOM_RIGHT:
+			    	tx= this.width;
+			    	ty= this.height;
+				break;
+			    case this.ANCHOR_TOP_LEFT:
+			    	tx= 0;
+			    	ty= 0;
+				break;
+			    default:
+				tx= anchor.x;
+				ty= anchor.y;
+				break;
 	        }
 
 			return {x: tx, y: ty};
